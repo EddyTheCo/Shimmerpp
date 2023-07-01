@@ -1,9 +1,9 @@
 name: "Build and Deploy"
 on:
-  push:
-    branches:
-      - main
-      - master
+  pull_request_target:
+    types: [closed]
+    branches: [main]
+
     paths-ignore:
       - .gitignore
       - README.md
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.base_ref, 'main')) }}  
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -64,6 +64,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    if: ${{ (github.event.pull_request.merged == true) && (startsWith(github.base_ref, 'main')) }}
     needs: build
     steps:
       - name: Deploy to GitHub Pages
