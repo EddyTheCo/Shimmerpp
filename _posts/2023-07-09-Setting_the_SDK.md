@@ -1,6 +1,6 @@
 ---
 title: Setting the SDK
-date: 2023-07-10 08:00:00 +0800
+date: 2023-07-09 08:00:00 +0800
 categories: [Tutorial]
 tags: [qt,cmake]   
 img_path: /assets/img/
