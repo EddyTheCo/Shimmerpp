@@ -5,7 +5,7 @@ categories: [Tutorial]
 tags: [qt,cmake]   
 img_path: /assets/img/
 image:
-  path: /assets/img/posts/sdk/qt_components_install.png
+  path: /posts/sdk/qt_components_install.png
 ---
 
 
