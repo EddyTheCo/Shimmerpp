@@ -97,9 +97,9 @@ comments:
   # Giscus options › https://giscus.app
   giscus:
     repo: "EddyTheCo/Shimmerpp"
-    repo_id: "<data-repo-id>" 
+    repo_id: "R_kgDOJ2TYug" 
     category: "Announcements"
-    category_id: "<data-category-id>"
+    category_id: "DIC_kwDOJ2TYus4CXyX5"
     mapping: # optional, default to 'pathname'
     input_position: # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
