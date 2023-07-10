@@ -4,7 +4,8 @@ on:
     types: [closed]
     branches: [main]
   push: 
-
+    branches: [posts_*]
+      
     paths-ignore:
       - .gitignore
       - README.md
