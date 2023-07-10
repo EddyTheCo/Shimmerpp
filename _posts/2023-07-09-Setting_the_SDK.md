@@ -5,7 +5,7 @@ categories: [Tutorial]
 tags: [qt,cmake]   
 img_path: /assets/img/
 image:
-  path: /posts/sdk/qt_components_install.png
+  path: posts/sdk/qt_components_install.png
 ---
 
 
@@ -87,7 +87,7 @@ Once on the installer, the needed components are
   - [x] Additional Libraries
     + [x] Qt Websockets 
 
-![QtComponents](/posts/sdk/qt_components_install.png){: width="972" height="589" .w-50 .left}
+![QtComponents](posts/sdk/qt_components_install.png){: width="972" height="589" .w-50 .left}
 
 The installation step creates  a `Qt` folder with the different libraries, the IDE [QtCreator](https://www.qt.io/product/development-tools), tools for developing user interfaces, and a qt-cmake tool.
 ```markdown
