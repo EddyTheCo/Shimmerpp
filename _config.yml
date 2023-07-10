@@ -96,10 +96,10 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: 'EddyTheCo/Shimmerpp'
-    repo_id: '660920506' 
-    category: 'Announcements'
-    category_id:
+    repo: "EddyTheCo/Shimmerpp"
+    repo_id: "<data-repo-id>" 
+    category: "Announcements"
+    category_id: "<data-category-id>"
     mapping: # optional, default to 'pathname'
     input_position: # optional, default to 'bottom'
     lang: # optional, default to the value of `site.lang`
