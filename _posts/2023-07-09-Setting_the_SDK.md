@@ -77,8 +77,9 @@ To use the online installer one needs to have a [Qt account](https://login.qt.io
 
 Once on the installer, the needed components are 
 
-- [ ] Qt Creator
-  + [x]	Qt Creator 11.0.0-beta2 (Preview)
+![QtComponents](posts/sdk/qt_components_install.png){: width="972" height="589" .w-50 .right}
+- [x] Qt Creator
+  + [x]	Qt Creator 11.0.0-beta2 (optional)
 
 - [x] Qt 6.5.0 
   + [x] Desktop gcc 64-bit 
@@ -87,7 +88,6 @@ Once on the installer, the needed components are
   - [x] Additional Libraries
     + [x] Qt Websockets 
 
-![QtComponents](posts/sdk/qt_components_install.png){: width="972" height="589" .w-50 .left}
 
 The installation step creates  a `Qt` folder with the different libraries, the IDE [QtCreator](https://www.qt.io/product/development-tools), tools for developing user interfaces, and a qt-cmake tool.
 ```markdown
@@ -239,7 +239,7 @@ The dependencies to develop using the Qt/C++ libraries are:
 
 4. Version control system (Git)
 
-5. Qt libraries (Qt Core, Qt Network ) 
+5. Qt libraries (Qt Core, Qt Network, Qt Quick, Qt Websockets) 
 
 We have sent a block with the most basic payload to the nodes.
 Feel free to play with the other [examples](https://github.com/EddyTheCo/Qclient-IOTA/tree/main/examples).

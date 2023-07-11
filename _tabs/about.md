@@ -5,10 +5,10 @@ order: 4
 ---
 
 Shimmerpp is intended to serve as a hub for developers interested in the [Shimmer ecosystem](https://shimmer.network/).
-It's purpose is to create a community of C++ developers that use and trust the IOTA/Shimmer protocol.
+Its purpose is to create a community of C++ developers that use and trust the IOTA/Shimmer protocol.
 
 
-The community is open for all experience levels of C++ and all types of contributions.
+The community is open to all experience levels of C++ and all types of contributions.
 It is intended to create discussion and fill the gaps of the interested user or developer when interacting with the Layer 1.  
 
 
@@ -20,9 +20,9 @@ The idea around a Qt/C++ community in the Shimmer ecosystem comes from [Eddy](ht
  
 
 ### Contributing
-All kind of contributions are welcome.
-From documenting code to creating the most advance algorithm for doing PoW.
-Also blog entries showcasing applications, new ideas, etc are welcome in the blog.
+All kinds of contributions are welcome.
+From documenting code to creating the most advanced algorithm for doing PoW.
+New content showcasing applications, new ideas, etc are welcome in the blog.
  
 The main guidelines when contributing are
 
@@ -32,7 +32,7 @@ The main guidelines when contributing are
 
 - Explain as much as you can. 
 
-- Make sure to acknowledge your work, idea ... 
+- Make sure to acknowledge your work, ideas. 
 
 
 ### Main Components
