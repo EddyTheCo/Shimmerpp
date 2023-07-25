@@ -10,7 +10,7 @@ image:
 
 
 This post explains the basic setup of the SDK to use the Qt/C++ component libraries of Shimmer++.
-The Shimmer++ component libraries relay on [Qt6](https://www.qt.io/product/qt6/technical-specifications) and its powerful CMake support. 
+The Shimmer++ component libraries rely on [Qt6](https://www.qt.io/product/qt6/technical-specifications) and its powerful CMake support. 
 To start developing Qt/C++ application for the Shimmer ecosystem one should check the current Qt support for your platform.
 
 - [x] [Qt for Linux/X11](https://doc.qt.io/qt-6/linux.html)
@@ -71,7 +71,7 @@ In that case, the necessary Qt libraries have to be installed on our system.
 We recommend installing the Qt IDE and the tools to develop user interfaces provided by Qt. 
 There are many ways one can install the libraries and tools, for our case we will use [Qt for Open Source Development](https://www.qt.io/download-open-source). 
 And we will use the [online installer](https://www.qt.io/download-qt-installer-oss).
-In future post we will explain how to install Qt using [GitHub runners]() for CI/CD and how to install Qt by using a [Yocto/OE](https://www.yoctoproject.org/) Layer.
+In future post we will explain how to install Qt for [GitHub Actions](https://github.com/features/actions) and how to install Qt by using a [Yocto/OE](https://www.yoctoproject.org/) Layer.
 
 To use the online installer one needs to have a [Qt account](https://login.qt.io/login). 
 
