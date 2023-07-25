@@ -251,5 +251,5 @@ Please let me know in the comments if you find it useful.
 Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimerpp.  
 
 
-
-
+## Watch the video! 
+{% include embed/youtube.html id='8EnnonwQgsw' %}
