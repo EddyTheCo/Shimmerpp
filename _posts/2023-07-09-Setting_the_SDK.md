@@ -11,7 +11,7 @@ image:
 
 This post explains the basic setup of the SDK to use the Qt/C++ component libraries of Shimmer++.
 The Shimmer++ component libraries rely on [Qt6](https://www.qt.io/product/qt6/technical-specifications) and its powerful CMake support. 
-To start developing Qt/C++ application for the Shimmer ecosystem one should check the current Qt support for your platform.
+To start developing Qt/C++ application for the [Shimmer ecosystem](https://shimmer.network/ecosystem) one should check the current Qt support for your platform.
 
 - [x] [Qt for Linux/X11](https://doc.qt.io/qt-6/linux.html)
 - [ ] [Qt for Windows](https://doc.qt.io/qt-6/windows.html)
