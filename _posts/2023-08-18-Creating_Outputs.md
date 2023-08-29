@@ -40,7 +40,7 @@ The latter are mainly composed of
 
 The `Outputs` can hold native tokens(user-defined tokens).
 Every output sets its `Unlock Conditions`, simply set the conditions to use that output as input in another transaction.
-Following this, the `Unlocks` property of the transaction proves to the node that the creator  of the transaction can fulfill the `Address`-related `Unlock Conditions` of the `Inputs`.
+Following this, the `Unlocks` field of the transaction proves to the node that the creator  of the transaction can fulfill the `Address`-related `Unlock Conditions` of the `Inputs`.
 
 The `Outputs` in the `Transaction Essence` can be of four different types
 * Basic Output
@@ -52,12 +52,15 @@ I find it simple to understand the UTXOs on the ledger as a public database.
 A database whose entries are the unspent outputs.
 Importantly, not everyone can modify any entry on the database, the `Unlock Conditions` of the entry sets who and how it can be modified.
 Some types of outputs have [chain constraints](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#chain-constraint-in-utxo),
-so how the entry on the database depends also on the transition rules defined for the given type of output and its current state.
+so how the entry can be modified depends also on the transition rules defined for the given type of output and its current state.
 
 
-## [Basic Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#basic-output)
+# [Basic Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#basic-output)
 
-It is called basic although can hold many of the `Features` and `Unlock Conditions` an output can have. 
+It is called basic although can hold many of the `Features` and `Unlock Conditions` an output can have.
+
+## [Features](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#features) 
+
 The different `Features`  of the `Basic Output` are
 - [ ] Metadata Feature
 - [ ] Tag Feature
@@ -85,6 +88,9 @@ If an entry(Output) has the `Sender  Feature` it links the creation of the outpu
 This link is [secured by the protocol](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#additional-semantic-transaction-validation-rule-1).
 Following the example of the IoT device, adding the `Sender Feature` to the output allows the client applications to certify from which IoT device this metadata came from.
 
+
+## [Unlock Conditions](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlock-conditions)
+ 
 The different `Unlock Conditions` that a `Basic output` can hold are
 - [x] Address Unlock Condition
 - [ ] Storage Deposit Return Unlock Condition
@@ -149,7 +155,7 @@ From one side the device could consume that output before the `Unix Time` has pa
 
 
 
-## [NFT Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#nft-output)
+# [NFT Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#nft-output)
 
 This output supports the same `Features` and `Unlock Conditions` that the `Basic Output`.
 Different from the `Basic Output`, the `NFT Output` has an `NFT ID` and also `Immutable Features`.
@@ -179,7 +185,7 @@ The producer could add to this field the different physical properties the IoT d
 
 ## [Alias Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#alias-output)
 
-This type of output is also subjected to chain constraint with the global ID of the chain `Alias ID`.
+This type of output is also subjected to chain constraint with the `Alias ID` as global ID of the chain .
 It allows the `Sender Feature` and `Metadata Feature` and also the `Immutable Features`, `Issuer Feature` and `Metadata Feature`.
 The output introduces new fields like `State Index`, `State Metadata`, and `Foundry Counter` but admits only two `Unlock Conditions`
 - [x] State Controller Address Unlock Condition
@@ -194,7 +200,7 @@ This condition sets the address the ownership has to be provided to unlock the `
 
 ### [Governor Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#governor-address-unlock-condition)
 
-This condition sets the address the ownership has to be provided to unlock the `Alias Output` with Governor control level.
+This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with Governor control level.
 
 As an example, the producer can create an `Alias Output` with an address he controls as a `Governor Address Unlock Condition`.
 The `State Controller Address Unlock Condition` is set to an address controlled by a certain factory.
