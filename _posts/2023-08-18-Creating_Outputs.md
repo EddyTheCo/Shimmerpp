@@ -8,9 +8,9 @@ image:
   path: posts/utxo/UTXO_model_in_Shimmer.png
 ---
 
-This post explains the Unspent Transaction Output (UTXO) model on Shimmer.
-The linked video and [code repo](https://github.com/EddyTheCo/OutsShimmerppExamples) show how to create the different Outputs using Shimmer++ libraries.
-
+This post explains the Unspent Transaction Output (UTXO) model on [Shimmer](https://shimmer.network/).
+The linked video and [code repo](https://github.com/EddyTheCo/OutsShimmerppExamples) show how to create the different Outputs using [Shimmer++](https://eddytheco.github.io/Shimmerpp/about/#main-components) libraries.
+Make sure to watch the video to get a more complete understanding of the UTXO model! 
 
 The UTXO model defines a ledger state where balances are not directly associated with addresses but with the outputs of transactions.
 Every output must have a base token amount greater than 0 and fulfill the [Dust Protection Requirements](https://wiki.iota.org/shimmer/tips/tips/TIP-0019/).
@@ -25,8 +25,8 @@ When referring to decentralization, I mean that everyone can own outputs on the 
 
 A transaction must be proposed to the node to modify its ledger.
 The transaction is composed of two parts,
-- [x] The `Transaction essence`
-- [x] The `Unlocks`
+- [x] `Transaction essence`
+- [x] `Unlocks`
 
 The `Transaction Essence` is composed of
 - [x] `Inputs`
@@ -43,10 +43,10 @@ Every output sets its `Unlock Conditions`, simply set the conditions to use that
 Following this, the `Unlocks` property of the transaction proves to the node that the creator  of the transaction can fulfill the `Address`-related `Unlock Conditions` of the `Inputs`.
 
 The `Outputs` in the `Transaction Essence` can be of four different types
-- [ ] Basic Output
-- [ ] NFT Output
-- [ ] Alias Output
-- [ ] Foundry Output
+* Basic Output
+* NFT Output
+* Alias Output
+* Foundry Output
 
 I find it simple to understand the UTXOs on the ledger as a public database.
 A database whose entries are the unspent outputs.
@@ -94,17 +94,18 @@ The different `Unlock Conditions` that a `Basic output` can hold are
 ### [The Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#address-unlock-condition)
 
 This condition sets that to use the output as input in another transaction(unlock the output) one has to prove ownership of a certain address.
+
 A side note, currently the different  `Address` types on Shimmer are
 
-- [ ] Ed25519 Address
-- [ ] Alias Address
-- [ ] NFT Address
+* Ed25519 Address
+* Alias Address
+* NFT Address
 
 To prove ownership over an `Ed25519 Address` one has to sign some data using the private key of the address.
 Refer to [proving ownership of the Alias and NFT Address](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlocking-chain-script-locked-outputs) for the other types.
 
 By setting as `Address Unlock Condition`  of the IoT output an address the IoT device controls,
-the device can destroy that output and create a new one with its location updated.
+the device can destroy that output on the ledger and create a new one with its location updated.
 
 ### [Storage Deposit Return Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#storage-deposit-return-unlock-condition)
 If an output has this condition, to consume the output in a transaction a new `Basic Output` without `Features` nor `Native Tokens` and with only an `Address Unlock Condition` must be created.
@@ -155,7 +156,7 @@ Different from the `Basic Output`, the `NFT Output` has an `NFT ID` and also `Im
 This ID identifies a chain of UTXO spends and the `Immutable Features` form part of the [chain constraint](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#chain-constraint-in-utxo) for this type of output.
 When an output with chain constraint is consumed, that transaction has to create a single subsequent output that carries the state forward. 
 The chain constraint sets the conditions for how a transaction can transition the chain state. 
-For this type of output, the subsequent state of the chain has to be an `NFT Output` with the same `Immutable Features` and `NFT ID`.
+For this type of output, the subsequent state of the chain has to be an `NFT Output` with the same `Immutable Features` and `NFT ID` implicit values.
 
 The different `Immutable Features` that a `NFT Output` can hold are
 - [ ] Issuer Feature
@@ -225,9 +226,11 @@ The different clients can choose to buy the tokens from the developer to recogni
 We have described in simple terms :smile: the UTXO model in Shimmer.
 Also, I have shown examples of how this and the protocol in general can be used in the field of IoT devices.
 The use cases of this level of security and decentralization are infinite and can be used in many different areas.
+
 The purpose of these posts is to create a community around the Shimmer ecosystem.
 A community that shares knowledge and contributes to the development of applications that trust the Shimmer nodes.
-Find bugs, and typos, learn and teach us what you know by contributing! 
+Find bugs, and typos, learn and teach us what you know by contributing!
+ 
 In future posts, I will explain how to use the Shimmer++ libraries to extend QML. 
 We will develop a custom QML type(a GUI object), that can interact with the protocol and can be easily reused in different GUI applications.
 Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimerpp.
