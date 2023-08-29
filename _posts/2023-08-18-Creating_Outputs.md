@@ -91,7 +91,7 @@ Following the example of the IoT device, adding the `Sender Feature` to the outp
 
 ### [Unlock Conditions](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlock-conditions)
  
-The different `Unlock Conditions` that a `Basic output` can hold are
+The different `Unlock Conditions` that a `Basic Output` can hold are
 - [x] Address Unlock Condition
 - [ ] Storage Deposit Return Unlock Condition
 - [ ] Timelock Unlock Condition
