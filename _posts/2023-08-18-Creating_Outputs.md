@@ -196,7 +196,7 @@ Due to this, one can say the `Alias Output` has [two levels of control](https://
 
 #### [State Controller Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#state-controller-address-unlock-condition)
 
-This condition sets the address the ownership has to be provided to unlock the `Alias Output` with State Controller control level.
+This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with State Controller control level.
 
 #### [Governor Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#governor-address-unlock-condition)
 
@@ -220,7 +220,7 @@ The output also has a global ID called `Foundry ID` and admits only one `Unlock 
 
 #### [Immutable Alias Address Unlock Condition ](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#immutable-alias-address-unlock-condition)
 
-This condition sets the `Alias Address` the ownership has to be provided to unlock the `Foundry Output`.
+This condition sets the `Alias Address` whose ownership has to be provided to unlock the `Foundry Output`.
 As part of the chain constraints, the latter address it is not allowed to change in future transitions of the output.
 Due to that, a `Foundry Output` is always controlled by the same `Alias Address` that was set at its creation.
 
