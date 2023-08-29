@@ -55,25 +55,25 @@ Some types of outputs have [chain constraints](https://wiki.iota.org/shimmer/tip
 so how the entry can be modified depends also on the transition rules defined for the given type of output and its current state.
 
 
-# [Basic Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#basic-output)
+## [Basic Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#basic-output)
 
 It is called basic although can hold many of the `Features` and `Unlock Conditions` an output can have.
 
-## [Features](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#features) 
+### [Features](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#features) 
 
 The different `Features`  of the `Basic Output` are
 - [ ] Metadata Feature
 - [ ] Tag Feature
 - [ ] Sender Feature
 
-### [Metadata Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#metadata-feature)
+#### [Metadata Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#metadata-feature)
 
 `Outputs` with this feature carry additional data, and this data will exist on the database until the output is spent.
 A simple example of the use of this feature is an IoT device that creates output on the ledger with the `Metadata Feature`.
 The metadata has the device geolocation coordinates. 
 In a simple public manner, the device can share its position for client applications to consume this data.
 
-### [Tag Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#tag-feature)
+#### [Tag Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#tag-feature)
 
 A `Tag Feature` makes it possible to tag outputs with an index.
 In the previous example, the IoT device has to share some output identifier with the client for this to be able to find 
@@ -81,7 +81,7 @@ that output on the ledger.
 Adding a `Tag Feature` with the index "IoT position" makes it easier for the client to find that output and the data.
 
  
-### [Sender Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#sender-feature)
+#### [Sender Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#sender-feature)
 
 Normally, entries on the public database do not say who created them. 
 If an entry(Output) has the `Sender  Feature` it links the creation of the output with some `Address`.
@@ -89,7 +89,7 @@ This link is [secured by the protocol](https://wiki.iota.org/shimmer/tips/tips/T
 Following the example of the IoT device, adding the `Sender Feature` to the output allows the client applications to certify from which IoT device this metadata came from.
 
 
-## [Unlock Conditions](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlock-conditions)
+### [Unlock Conditions](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlock-conditions)
  
 The different `Unlock Conditions` that a `Basic output` can hold are
 - [x] Address Unlock Condition
@@ -97,7 +97,7 @@ The different `Unlock Conditions` that a `Basic output` can hold are
 - [ ] Timelock Unlock Condition
 - [ ] Expiration Unlock Condition
 
-### [Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#address-unlock-condition)
+#### [Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#address-unlock-condition)
 
 This condition sets that to use the output as input in another transaction(unlock the output) one has to prove ownership of a certain address.
 
@@ -113,7 +113,7 @@ Refer to [proving ownership of the Alias and NFT Address](https://wiki.iota.org/
 By setting as `Address Unlock Condition`  of the IoT output an address the IoT device controls,
 the device can destroy that output on the ledger and create a new one with its location updated.
 
-### [Storage Deposit Return Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#storage-deposit-return-unlock-condition)
+#### [Storage Deposit Return Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#storage-deposit-return-unlock-condition)
 If an output has this condition, to consume the output in a transaction a new `Basic Output` without `Features` nor `Native Tokens` and with only an `Address Unlock Condition` must be created.
 The condition sets the `Return Address` and `Return Amount` values that must be used in the `Address Unlock Condition` and `Amount` of the new output for the transaction to be valid.
 
@@ -131,7 +131,7 @@ By doing this the `Native Tokens` on the output are now owned by the IoT device 
 The `NFT Output` also can have this condition, and in the same manner, this can be used to change the ownership of NFT outputs without losing control over the base tokens needed for the creation of the Output. 
 
 
-### [Timelock Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#timelock-unlock-condition)
+#### [Timelock Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#timelock-unlock-condition)
 
 Outputs with this condition can not be used in a transaction as input until a certain `Unix Time` has passed.
 The notion of time in the protocol is  introduced via the `Timestamp` value of [blocks with a `Milestone Payload`](https://wiki.iota.org/shimmer/tips/tips/TIP-0008/).
@@ -141,7 +141,7 @@ To avoid this the basic output with the data could include this condition.
 In that case, the device can be certain previous outputs will not be consumed until a certain `Unix Time` has passed.
 
 
-### [Expiration Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#expiration-unlock-condition)
+#### [Expiration Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#expiration-unlock-condition)
 
 This condition sets a `Unix Time`, to unlock the output after this time, proof of  ownership of the 
 `Address` in the `Address Unlock Condition` is not needed. 
@@ -155,7 +155,7 @@ From one side the device could consume that output before the `Unix Time` has pa
 
 
 
-# [NFT Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#nft-output)
+## [NFT Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#nft-output)
 
 This output supports the same `Features` and `Unlock Conditions` that the `Basic Output`.
 Different from the `Basic Output`, the `NFT Output` has an `NFT ID` and also `Immutable Features`.
@@ -168,7 +168,7 @@ The different `Immutable Features` that a `NFT Output` can hold are
 - [ ] Issuer Feature
 - [ ] Metadata Feature
 
-### [Issuer Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#issuer-feature)
+#### [Issuer Feature](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#issuer-feature)
 
 If a `NFT Output` has the `Issuer Feature` it links the creation of the chain of UTXO spends with some Address.
 In the case of the `NFT Output` the creation of the chain is normally called NFT mint.
@@ -194,11 +194,11 @@ The output introduces new fields like `State Index`, `State Metadata`, and `Foun
 Depending on which unlock it is fulfilled the chain constraints are different. 
 Due to this, one can say the `Alias Output` has [two levels of control](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#consumed-outputs-1).
 
-### [State Controller Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#state-controller-address-unlock-condition)
+#### [State Controller Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#state-controller-address-unlock-condition)
 
 This condition sets the address the ownership has to be provided to unlock the `Alias Output` with State Controller control level.
 
-### [Governor Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#governor-address-unlock-condition)
+#### [Governor Address Unlock Condition](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#governor-address-unlock-condition)
 
 This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with Governor control level.
 
@@ -218,7 +218,7 @@ The output also has a global ID called `Foundry ID` and admits only one `Unlock 
 
 - [x] Immutable Alias Address Unlock Condition
 
-### [Immutable Alias Address Unlock Condition ](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#immutable-alias-address-unlock-condition)
+#### [Immutable Alias Address Unlock Condition ](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#immutable-alias-address-unlock-condition)
 
 This condition sets the `Alias Address` the ownership has to be provided to unlock the `Foundry Output`.
 As part of the chain constraints, the latter address it is not allowed to change in future transitions of the output.
