@@ -101,11 +101,12 @@ The different `Unlock Conditions` that a `Basic Output` can hold are
 
 This condition sets that to use the output as input in another transaction(unlock the output) one has to prove ownership of a certain address.
 
-A side note, currently the different  `Address` types on Shimmer are
+> Currently the different  `Address` types on Shimmer are
+> * Ed25519 Address
+> * Alias Address
+> * NFT Address
+{: .prompt-info }
 
-* Ed25519 Address
-* Alias Address
-* NFT Address
 
 To prove ownership over an `Ed25519 Address` one has to sign some data using the private key of the address.
 Refer to [proving ownership of the Alias and NFT Address](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlocking-chain-script-locked-outputs) for the other types.
@@ -229,7 +230,7 @@ The different clients can choose to buy the tokens from the developer to recogni
 
 ## Conclusion
 
-We have described in simple terms :smile: the UTXO model in Shimmer.
+We have described in simple terms the UTXO model in Shimmer.
 Also, I have shown examples of how this and the protocol in general can be used in the field of IoT devices.
 The use cases of this level of security and decentralization are infinite and can be used in many different areas.
 
