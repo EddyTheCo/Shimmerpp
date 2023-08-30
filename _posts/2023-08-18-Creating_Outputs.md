@@ -180,7 +180,7 @@ The producer transfers ownership of the `NFT Output` to the device.
 Now the client application apart from certifying which IoT device published the data(by using the `Sender Feature`), also can certify that the device comes from a certain producer.
 
 **The Immutable Metadata Feature** can  be used by the producer. 
-The producer could add to this field the different physical properties the IoT device has, making the `NFT Output` a Digital twin of the physical device.
+The producer could add to this field the different physical properties the IoT device has, making the `NFT Output` a Digital Twin of the physical device.
 
 
 ## [Alias Output](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#alias-output)
