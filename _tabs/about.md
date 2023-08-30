@@ -54,3 +54,21 @@ The different base components for interacting with the Shimmer Layer 1 are
 - [Client to communicate with the Node Event API of the nodes](https://github.com/EddyTheCo/QclientMqtt-IOTA)
 
 
+### High level Components
+
+- [Address Wallet](https://github.com/EddyTheCo/QAddrBundle)
+
+- [Account GUI](https://github.com/EddyTheCo/account)
+
+- [Client Connection GUI](https://github.com/EddyTheCo/ConectionSettings)
+
+
+### Examples
+
+- [Output creation](https://github.com/EddyTheCo/OutsShimmerppExamples)
+
+- [NFT Mint](https://github.com/EddyTheCo/NftMinter)
+
+- [Buy Me A Coffee](https://github.com/EddyTheCo/BuyMeACoffe)
+
+- [Air Drops](https://github.com/EddyTheCo/AirDropper)
