@@ -105,11 +105,10 @@ This condition sets that to use the output as input in another transaction(unloc
 > * Ed25519 Address
 > * Alias Address
 > * NFT Address
+>
+>To prove ownership over an `Ed25519 Address` one has to sign some data using the private key of the address.
+>Refer to [proving ownership of the Alias and NFT Address](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlocking-chain-script-locked-outputs) for the other types.
 {: .prompt-info }
-
-
-To prove ownership over an `Ed25519 Address` one has to sign some data using the private key of the address.
-Refer to [proving ownership of the Alias and NFT Address](https://wiki.iota.org/shimmer/tips/tips/TIP-0018/#unlocking-chain-script-locked-outputs) for the other types.
 
 By setting as `Address Unlock Condition`  of the IoT output an address the IoT device controls,
 the device can destroy that output on the ledger and create a new one with its location updated.
