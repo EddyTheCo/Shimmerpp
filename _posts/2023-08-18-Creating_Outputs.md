@@ -122,8 +122,8 @@ The outputs with this condition and `Native Tokens`, allow the creator of the ou
 losing the storage deposit of the output.
 
 As an example, a client dapp validates that the coordinates published by the IoT device are correct.
-To recognize the good behavior of the device the client creates a `Basic Output` with an `Address Unlock Condition` set equal to the `Sender Feature`  value of output the device uses to publish its coordinates.
-The latter output has a certain `Native Token` and a `Storage Deposit Return Unlock Condition`.
+To recognize the good behavior of the device the client creates a `Basic Output` with an `Address Unlock Condition` set equal to the `Sender Feature`  value of the output the device uses to publish its coordinates.
+The client output has a certain `Native Token` and a `Storage Deposit Return Unlock Condition`.
 The `Return Address` on the `Storage Deposit Return Unlock Condition` is an address the client controls and the `Return Amount` is equal to the output `Amount` value. 
 By doing this the `Native Tokens` on the output are now owned by the IoT device with the condition that it has to take care of the storage deposit carrying those tokens. 
 
@@ -137,7 +137,7 @@ Outputs with this condition can not be used in a transaction as input until a ce
 The notion of time in the protocol is  introduced via the `Timestamp` value of [blocks with a `Milestone Payload`](https://wiki.iota.org/shimmer/tips/tips/TIP-0008/).
 
 As an example, the IoT device to update its position in a new output could consume the output with the previous location data.
-To avoid this the basic output with the data could include this condition.
+To avoid this the `Basic Output` with the data could include this condition.
 In that case, the device can be certain previous outputs will not be consumed until a certain `Unix Time` has passed.
 
 
@@ -151,7 +151,7 @@ Instead, a prove of ownership of the `Return Address` value of the `Expiration U
 As an example, when the client application creates the output to transfer some tokens to the IoT device for its good behavior.
 The client will add an `Expiration Unlock Condition` to the output, with `Return Address` an address the client controls.
 In that manner, after some time the base tokens on the output will be always available to the client.
-From one side the device could consume that output before the `Unix Time` has passed or the output can be only unlocked by the client. 
+From one side the device could consume that output before the `Unix Time` has passed, or in the other case, the output can be only unlocked by the client. 
 
 
 
@@ -222,7 +222,7 @@ The output also has a global ID called `Foundry ID` and admits only one `Unlock 
 
 This condition sets the `Alias Address` whose ownership has to be provided to unlock the `Foundry Output`.
 As part of the chain constraints, the latter address it is not allowed to change in future transitions of the output.
-Due to that, a `Foundry Output` is always controlled by the same `Alias Address` that was set at its creation.
+Due to that, a `Foundry Output` is always controlled by the same `Alias Address` that was set at the chain creation.
 
 As an example, the developer of the client Dapp will have to create a `Foundry Output` that mints a certain amount of `Native Tokens`.
 The different clients can choose to buy the tokens from the developer to recognize the good(bad) behavior of the IoT devices.
