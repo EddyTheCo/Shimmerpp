@@ -239,7 +239,7 @@ Find bugs, and typos, learn and teach us what you know by contributing!
  
 In future posts, I will explain how to use the Shimmer++ libraries to extend QML. 
 We will develop a custom QML type(a GUI object), that can interact with the protocol and can be easily reused in different GUI applications.
-Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimerpp.
+Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimmer++.
 
 ## Watch the video! 
 {% include embed/youtube.html id='ibErRWgGI1M' %}

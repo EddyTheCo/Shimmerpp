@@ -248,7 +248,7 @@ A community that shares knowledge and contributes to the development  of applica
 Find bugs, typos, learn and teach us what you know by contributing! 
 In future posts, I will explain my understanding of the different Outputs used in the [Stardust Protocol](https://blog.shimmer.network/stardust-upgrade-in-a-nutshell/) and how these can be used.
 Please let me know in the comments if you find it useful.
-Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimerpp.  
+Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimmer++.  
 
 
 ## Watch the video! 
