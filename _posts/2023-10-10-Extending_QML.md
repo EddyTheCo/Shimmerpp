@@ -57,7 +57,7 @@ As an example, we are interested in developing a library that
 The part of our code that takes care of creating a [reusable QML module](https://doc.qt.io/qt-6/cmake-build-reusable-qml-module.html) is mainly present in the [`CMakeLists.txt`](https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/b67769ed3cd76b666cf770cb067d9b69d53eb5f6/CMakeLists.txt) file.
 The most important part is the use of the [`qt_add_qml_module`](https://doc.qt.io/qt-6/qt-add-qml-module.html) function.
 
-```
+```cmake
 qt6_add_qml_module(nftMonitor
 	URI  nftMonitor
 	VERSION 1.0
@@ -74,6 +74,7 @@ qt6_add_qml_module(nftMonitor
 	${CMAKE_CURRENT_BINARY_DIR}/nftMonitor
 	)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 This function will create a target called `nftMonitor` that exposes a custom QML type using C++(defined in the `SOURCES`)
 and also exposes a custom QML type(defined in the `QML_FILES`).
 
@@ -98,31 +99,34 @@ This will group the needed files and resources in the `installation tree`.
 
 Configure CMake to install the library
 
-```
+```cmake
 install(TARGETS nftMonitor ${out_targets_var} 
 	EXPORT nftMonitorTargets
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	)
 ``` 
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 
 the public headers
 
-```
+```cmake
 install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/
 	DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/nftMonitor
 	COMPONENT library
 	)
 ``` 
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 
 One also needs to install a CMake file containing code to import the targets from the installation tree into another project like
-```
+```cmake
 install(EXPORT nftMonitorTargets
 	FILE nftMonitorTargets.cmake
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/nftMonitor
 	)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 To use the powerful [`find_package`](https://cmake.org/cmake/help/latest/command/find_package.html) to search for our library one can use the [`CMakePackageConfigHelpers`](https://cmake.org/cmake/help/latest/module/CMakePackageConfigHelpers.html) functions
-```
+```cmake
 include(CMakePackageConfigHelpers)
 configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
 	"${CMAKE_CURRENT_BINARY_DIR}/nftMonitorConfig.cmake"
@@ -139,6 +143,7 @@ install(FILES
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/nftMonitor
 	)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 > Now we have a library that can be easily reused in other applications. 
 {: .prompt-info }
 
@@ -153,7 +158,7 @@ To make available the methods to communicate with the REST API of the nodes we u
 The communication with the Event API is performed by the [QclientMqtt](https://eddytheco.github.io/QclientMqtt-IOTA/) library.
 
 One can easily integrate these libraries into your CMake project like
-```
+```cmake
 include(FetchContent)
 # Get the library that check if a NFT exist on an address using the REST API of the nodes
 # This will check if the library is installed first, if not download it from GitHub and compile it
@@ -175,8 +180,9 @@ FetchContent_Declare(
 	)
 FetchContent_MakeAvailable(qclientMQTT)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 Because we will be working with addresses in human-readable format our QML type needs the [Bech32 methods](https://eddytheco.github.io/Qbech32/) like
-```
+```cmake
 # Get the library that takes care of encoding and decoding bech32 addresses
 FetchContent_Declare(
 	qbech32
@@ -186,21 +192,24 @@ FetchContent_Declare(
 	)
 FetchContent_MakeAvailable(qbech32)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
 
 In the `SOURCES` of our QML type, we will use the methods from Shimmer++ to monitor the NFTs in a certain address.
 To query the REST API of the node using the `/api/indexer/v1/outputs/nft` route we use
-```
+```cpp
 rest_client->get_outputs<qblocks::Output::NFT_typ>(node_outputs_,"address="+m_address);
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 To subscribe to the `outputs/unlock/{condition}/{address}` we do 
 
-```
+```cpp
 resp=event_client->get_subscription("outputs/unlock/address/"+m_address);
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 If any of these methods return an `OUTPUT`, the program proceeds to analyze it and update the properties of our QML type.
 
 To calculate the attack coefficient we use the `NFT ID` of the `NFT Output` like
-```
+```cpp
 auto NFTID=nft_output->get_id();
 auto buffer=QDataStream(&NFTID,QIODevice::ReadOnly);
 buffer.setByteOrder(QDataStream::LittleEndian);
@@ -209,13 +218,14 @@ buffer>>atackInd;
 m_attack=atackInd*1000.0/std::numeric_limits<quint64>::max();
 emit attackChanged();
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 With this, a semi-random coefficient between 0 and 1000 is linked to every `NFT Output`, and the property attack of our QML type is updated.
 This allows the library to exploit content from other creators while not letting them abuse the game.
 
 
 With the next code snippet, the function analyzes the metadata feature and updates the name property of the QML type.
 
-```
+```cpp
 auto metdataFeat=nft_output->get_feature_(qblocks::Feature::Metadata_typ);
 		if(metdataFeat)
 		{
@@ -235,11 +245,12 @@ auto metdataFeat=nft_output->get_feature_(qblocks::Feature::Metadata_typ);
 
 		}
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 This allows you to link the address and the NFT to your name(because you like to brag about it).
 More complicated applications can be done that allow you to show ownership of the asset, but this is enough for this post.
 
 We do the same to update the image parameter of the QML type from the `Uri` field of the `Immutable Metadata Feature`
-```
+```cpp
 auto ImmetdataFeat=nft_output->get_immutable_feature_(qblocks::Feature::Metadata_typ);
 if(ImmetdataFeat)
 {
@@ -257,9 +268,10 @@ if(ImmetdataFeat)
 	}
 }
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 
 We are also interested in getting the issuer of the NFT
-```
+```cpp
 auto IssuerFea=nft_output->get_immutable_feature_(qblocks::Feature::Issuer_typ);
 if(IssuerFea)
 {
@@ -268,6 +280,7 @@ if(IssuerFea)
 //emit the signal in order for QML side to know that the property of the element has changed.
 emit issuerChanged();
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 The latter allows the developers to give a higher attack coefficient to  their minted NFTs,
 making them rare. 
 
@@ -297,7 +310,7 @@ Depending on your situation one has to choose the right [integration method](htt
 {: .prompt-info }
 
 Our type is derived from QObject and exposes certain properties to QML
-```
+```cpp
 class OMONI_EXPORT CPPMonitor : public QObject
 {
     Q_OBJECT
@@ -312,12 +325,14 @@ class OMONI_EXPORT CPPMonitor : public QObject
 	...
 
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/include/nftmonitor.hpp'}
 The `Q_OBJECT` macro must appear in the private section of a class definition that declares its signals and slots or that uses other services provided by Qt's meta-object system.
 The `Q_PROPERTY` macro declares the properties of our type to QML.
 In the case of 
-```
+```cpp
 Q_PROPERTY(QString  address MEMBER m_address NOTIFY addressChanged)
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/include/nftmonitor.hpp'}
 
 This binds the exposed QML property `address` to the class member `m_address`.
 Emitting the signal `addressChanged()` from C++ notifies the QML engine that the `address` property has changed.
@@ -340,13 +355,14 @@ This document-defined type creates 3 visual items
 3. A [TextField](https://doc.qt.io/qt-6/qml-qtquick-controls-textfield.html) where one can set the address property of our C++-defined type.
 
 To be able to use our custom `CPPMonitor` in this QML document we need to use an [import statement](https://doc.qt.io/qt-6/qtqml-syntax-imports.html).
-```
+```qml
 import nftMonitor
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/qml/NFTMonitor.qml'}
 The name `nftMonitor` comes from the URI parameter declared in the CMake `qt6_add_qml_module` block of our library/module.
 
 The document-defined type exposes two properties, the attack(`attack` property) and the node address(`nodeAddr` property)
-```
+```qml
 Item
 {
     id:root
@@ -354,9 +370,10 @@ Item
     property alias nodeAddr:monitor.nodeAddr
 ...
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/qml/NFTMonitor.qml'}
 
 In the document, the C++-defined type is  instantiated like
-```
+```qml
 CPPMonitor
 {
 	id:monitor
@@ -377,6 +394,7 @@ CPPMonitor
 
 }
 ```
+{: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/qml/NFTMonitor.qml'}
 Where `address: addrText.text` binds the text property of the `TextField` to the address property of our type.
 The `onIssuerChanged` [block](https://doc.qt.io/qt-6/qtqml-syntax-signals.html#receiving-signals-with-signal-handlers) is a JavaScript function that is executed every time the signal `issuerChanged` is emitted from C++.
 The latter function sets the URL of the image and gives the maximum attack coefficient to NFTs with a certain issuer.
