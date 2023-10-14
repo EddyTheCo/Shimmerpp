@@ -81,7 +81,7 @@ The definition of the `RESOURCE_PREFIX` is made to avoid name clashes between di
 This resource prefix has to be added to the [QML Import Path](https://doc.qt.io/qt-6/qtqml-syntax-imports.html#qml-import-path) for the QML engine to be able to find the module. 
 By using this path, the application that links to our library can rely on [the backing target library](https://doc.qt.io/qt-6/qt-add-qml-module.html#target-structure) and [the Qt Resource System](https://doc.qt.io/qt-6/resources.html) for using QML modules and resources in a platform-independent manner.
 
-Setting the `OUTPUT_DIRECTORY` variable will allow us to use [CMake FetchContent](FetchContent) to make available our backing target library.
+Setting the `OUTPUT_DIRECTORY` variable will allow us to use [CMake FetchContent](https://cmake.org/cmake/help/latest/module/FetchContent.html) to make available our backing target library.
 The latter variable is important for tooling and using the plugin target of our library.
 Setup tooling like [qmllint](https://doc.qt.io/qt-6/qtquick-tool-qmllint.html) for our library is out of the scope of this post.
 I recommend using the backing target and the Qt Resource System to make the application platform independent. 
