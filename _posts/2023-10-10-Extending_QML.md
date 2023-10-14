@@ -212,10 +212,9 @@ To subscribe to the `outputs/unlock/{condition}/{address}` we do
 ```cpp
 resp=event_client->get_subscription("outputs/unlock/address/"+m_address);
 connect(resp,&ResponseMqtt::returned,this,[=](auto data){
-							//Update the values of the QML type.
-							updateValues(Node_output(data));
-							});
-					}
+	//Update the values of the QML type.
+	updateValues(Node_output(data));
+	});
 ```
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 If any of these methods return an `OUTPUT`, the program proceeds to analyze it and update the properties of our QML type.
