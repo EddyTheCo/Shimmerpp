@@ -8,7 +8,7 @@ image:
   path: posts/utxo/UTXO_model_in_Shimmer.png
 ---
 
-This post explains how to extend the QML language using C++, specifically the Shimmer++ libraries.
+This post explains how to extend the QML language using C++, specifically the [Shimmer++ libraries](https://eddytheco.github.io/Shimmerpp/about/).
 After reading the post, developers will be able to create reusable GUI components, making the development faster.
 
 The [code repo](https://github.com/EddyTheCo/NFTQMLShimmerpp/tree/v0.0.1) serves as an example application of this post. 
@@ -47,7 +47,7 @@ As an example, we are interested in developing a library that
 
 2. Monitors the last [`NFT Output`](https://wiki.iota.org/tips/tips/TIP-0018/#nft-output) that has a certain address value in the [`Adress Unlock Condition`](https://wiki.iota.org/tips/tips/TIP-0018/#address-unlock-condition).
 
-3. Analyzes the `Immutable Metadata` and `Metadata` [features](https://wiki.iota.org/tips/tips/TIP-0018/#metadata-feature) of the `Output`. 
+3. Analyzes the `Immutable Metadata` and `Metadata` [Features](https://wiki.iota.org/tips/tips/TIP-0018/#metadata-feature) of the `Output`. 
 
 4. Displays if present a name, an image, and a unique attack coefficient taken from the `NFT Output`.
 
@@ -87,7 +87,7 @@ The latter variable is important for tooling and using the plugin target of our 
 Setup tooling like [qmllint](https://doc.qt.io/qt-6/qtquick-tool-qmllint.html) for our library is out of the scope of this post.
 I recommend using the backing target and the Qt Resource System to make the application platform independent. 
 
-> With this, we have defined a CMake target(a library in this case)  that exposes some custom QML type in library that can be built.
+> With this, we have defined a CMake target that exposes some custom QML type in a library that can be built.
 {: .prompt-info }
 
 To use this target one has to make it available to the CMake configuration of the project using our library.
@@ -144,7 +144,7 @@ install(FILES
 	)
 ```
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/CMakeLists.txt'}
-> Now we have a library that can be easily reused in other applications. 
+> Now we have a library that can be easily reused in other applications by using CMake. 
 {: .prompt-info }
 
 ### Using Shimmer++ in the exposed QML type.
@@ -197,6 +197,13 @@ FetchContent_MakeAvailable(qbech32)
 In the `SOURCES` of our QML type, we will use the methods from Shimmer++ to monitor the NFTs in a certain address.
 To query the REST API of the node using the `/api/indexer/v1/outputs/nft` route we use
 ```cpp
+// When the node returns the NFT outputs execute this
+connect(node_outputs_,&Node_outputs::finished,this,[=]( ){
+	// If there are NFT outputs on the address update the values of the QML type
+	if(node_outputs_->outs_.size())updateValues(node_outputs_->outs_.front());
+	node_outputs_->deleteLater();
+	});
+...
 rest_client->get_outputs<qblocks::Output::NFT_typ>(node_outputs_,"address="+m_address);
 ```
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
@@ -204,6 +211,11 @@ To subscribe to the `outputs/unlock/{condition}/{address}` we do
 
 ```cpp
 resp=event_client->get_subscription("outputs/unlock/address/"+m_address);
+connect(resp,&ResponseMqtt::returned,this,[=](auto data){
+							//Update the values of the QML type.
+							updateValues(Node_output(data));
+							});
+					}
 ```
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.0.1/src/nftmonitor.cpp'}
 If any of these methods return an `OUTPUT`, the program proceeds to analyze it and update the properties of our QML type.
