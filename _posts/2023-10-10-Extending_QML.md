@@ -8,6 +8,8 @@ image:
   path: posts/utxo/UTXO_model_in_Shimmer.png
 ---
 
+> This post and its resources are still in development.
+{: .prompt-info }
 This post explains how to extend the QML language using C++, specifically the [Shimmer++ libraries](https://eddytheco.github.io/Shimmerpp/about/).
 After reading the post, developers will be able to create reusable GUI components, making the development faster.
 
