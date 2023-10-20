@@ -434,6 +434,8 @@ Other examples of custom QML types that interact with the Shimmer ecosystem are
 
 - [Client Connection GUI](https://github.com/EddyTheCo/ConectionSettings)
 
+- [Middle Pay](https://github.com/EddyTheCo/MidlePay)
+
 We are looking forward to using your custom QML types or your contributions to the previous ones.
 
 The purpose of these posts is to create a community around the Shimmer ecosystem. A community that shares knowledge and contributes to the development of applications that trust the Shimmer nodes. Find bugs, and typos, learn and teach us what you know by contributing!
