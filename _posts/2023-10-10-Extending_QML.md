@@ -406,7 +406,7 @@ CPPMonitor
 	        if(monitor.issuer==="0x000b22cdeed839e4df23def46f7c2e8d04d3b66aab30b2695c7e9cbf21e9ef93cb")
 	        {
         		root.attack=1000;
-            		image.source= "qrc:/esterVtech.com/imports/nftMonitor/images/BestNFT.png"
+            		image.source= "qrc:/esterVtech.com/imports/NFTMonitor/images/BestNFT.png"
 	        }
 		else
 		{
