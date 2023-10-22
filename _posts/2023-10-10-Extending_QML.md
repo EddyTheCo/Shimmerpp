@@ -5,7 +5,7 @@ categories: [Tutorial]
 tags: [QML,NFT]   
 img_path: /assets/img/
 image:
-  path: posts/utxo/UTXO_model_in_Shimmer.png
+  path: posts/gui/Creating_Gui_Component.png
 ---
 
 > This post and its resources are still in development.
