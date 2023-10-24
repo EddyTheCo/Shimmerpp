@@ -8,8 +8,6 @@ image:
   path: posts/gui/Creating_Gui_Component.png
 ---
 
-> This post and its resources are still in development.
-{: .prompt-info }
 
 This post explains how to extend the QML language using C++, specifically the [Shimmer++ libraries](https://eddytheco.github.io/Shimmerpp/about/).
 After reading the post, developers will be able to create reusable GUI components, making the development faster.
@@ -447,4 +445,4 @@ Please let me know in the comments if you find it useful. Let me know your doubt
 
 
 ## Watch the video! 
-{% include embed/youtube.html id='ibErRWgGI1M' %}
+{% include embed/youtube.html id='IfjWUYFc13Q' %}
