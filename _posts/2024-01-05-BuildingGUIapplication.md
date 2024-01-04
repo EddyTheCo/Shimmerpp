@@ -15,10 +15,10 @@ Specifically, the post will pinpoint the important parts needed to build the app
 [embedded](https://doc.qt.io/qt-6/embedded-linux.html) devices.
 
 The [code repo](https://github.com/EddyTheCo/NftMinter/tree/v0.5.0) contains the application source code and will be the main reference of this post.
-A [Yocto](https://www.yoctoproject.org/) Layer [repo]() shows how to use the Shimmer++ libraries in embedded devices.
+A [Yocto](https://www.yoctoproject.org/) Layer [repo](https://www.example.org) shows how to use the Shimmer++ libraries in embedded devices.
 Developers are encouraged to check the repos for a more complete understanding of this post.
 
-The linked video showcases the application running in different platforms and explains the logic behind NFTs working as wallets.  
+The linked video showcases the application running on different platforms and explains the logic behind NFTs working as wallets.  
 
 ## The Qt/QML/Shimmer++ application
 
@@ -190,7 +190,7 @@ endif(QTDEPLOY)
 ```
 {: file='https://github.com/EddyTheCo/NftMinter/blob/v0.5.0/CMakeLists.txt'}
 
-At the moment the Qt's CMake deployment API is available for the 3 major Desktop platforms,
+At the moment Qt's CMake deployment API is available for the 3 major Desktop platforms,
 the project limits its use by the `QTDEPLOY` variable.
 
 
