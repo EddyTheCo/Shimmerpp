@@ -53,7 +53,7 @@ The different base components for interacting with the Shimmer Layer 1 are
 
 - [Client to communicate with the REST API of the nodes](https://github.com/EddyTheCo/Qclient-IOTA)
 
-- [Client to communicate with the Node Event API of the nodes](https://github.com/EddyTheCo/QclientMqtt-IOTA)
+- [Client to communicate with the Event API of the nodes](https://github.com/EddyTheCo/QclientMqtt-IOTA)
 
 
 ### High-level Components
