@@ -9,7 +9,7 @@ Its purpose is to create a community of C++ developers that use and trust the IO
 
 
 The community is open to all experience levels of C++ and all types of contributions.
-It is intended to create discussion and fill the gaps of the interested user or developer when interacting with the Layer 1.  
+It is intended to create discussion and fill the gaps of the interested user or developer when interacting with Layer 1.  
 
 
 ### The idea
@@ -32,7 +32,7 @@ The main guidelines when contributing are
 
 - Explain as much as you can. 
 
-- Make sure to acknowledge your work, ideas. 
+- Make sure to acknowledge your work and ideas. 
 
 
 ### Main Components
@@ -40,6 +40,8 @@ The main guidelines when contributing are
 The different base components for interacting with the Shimmer Layer 1 are
 
 - [Universal private key derivation from master private key](https://github.com/EddyTheCo/Qslip10)
+
+- [Mnemonic code for generating deterministic keys](https://github.com/EddyTheCo/QBip39)
 
 - [Checksummed base32 format addresses](https://github.com/EddyTheCo/Qbech32)
 
@@ -54,13 +56,15 @@ The different base components for interacting with the Shimmer Layer 1 are
 - [Client to communicate with the Node Event API of the nodes](https://github.com/EddyTheCo/QclientMqtt-IOTA)
 
 
-### High level Components
+### High-level Components
 
 - [Address Wallet](https://github.com/EddyTheCo/QAddrBundle)
 
-- [Account GUI](https://github.com/EddyTheCo/account)
+- [Wallet](https://github.com/EddyTheCo/qWallet-IOTA)
 
-- [Client Connection GUI](https://github.com/EddyTheCo/ConectionSettings)
+- [Account](https://github.com/EddyTheCo/account)
+
+- [Client Connection](https://github.com/EddyTheCo/ConectionSettings)
 
 
 ### Examples
