@@ -11,7 +11,7 @@ image:
 
 This post explains the basic setup of the SDK to use the Qt/C++ component libraries of Shimmer++.
 The Shimmer++ component libraries rely on [Qt6](https://www.qt.io/product/qt6/technical-specifications) and its powerful CMake support. 
-To start developing Qt/C++ application for the [Shimmer ecosystem](https://shimmer.network/ecosystem) one should check the current Qt support for your platform.
+To start developing Qt/C++ applications for the [Shimmer ecosystem](https://shimmer.network/ecosystem) one should check the current Qt support for your platform.
 
 - [x] [Qt for Linux/X11](https://doc.qt.io/qt-6/linux.html)
 - [ ] [Qt for Windows](https://doc.qt.io/qt-6/windows.html)
@@ -41,7 +41,7 @@ The different platforms range from Desktops, web, android to  embedded devices.
 When developing for the Shimmer ecosystem using the C++ libraries, we recommend using CMake >=3.24.
 This allows you to exploit the latest modules and options. 
  
-To install CMake in your platform follow the [instructions](https://cmake.org/install/).
+To install CMake on your platform follow the [instructions](https://cmake.org/install/).
 In the case of Ubuntu, cmake 3.26.4 can be installed using snap
 ```bash
 sudo snap install cmake
@@ -61,7 +61,7 @@ With all this, your system is ready for developing CMake projects written in C++
 
 ## Installing Qt libraries and Qt Creator
 
-Our final purpose is to use the basic-component libraries(BCs) for developing applications that interact with the Layer 1 of Shimmer nodes.
+Our final purpose is to use the basic-component libraries(BCs) for developing applications that interact with Layer 1 of Shimmer nodes.
 
 The BCs only dependencies are the C++ Standard Libraries and Qt libraries.
 The [Qt Core](https://doc.qt.io/qt-6/qtcore-index.html) library  brings support to methods like [JSON](https://doc.qt.io/qt-6/qjsonobject.html), [Cryptographic Hashes](https://doc.qt.io/qt-6/qcryptographichash.html), [Byte Arrays, Hex Encoding](https://doc.qt.io/qt-6/qbytearray.html), and [Data Streams](https://doc.qt.io/qt-6/qdatastream.html). 
@@ -71,7 +71,7 @@ In that case, the necessary Qt libraries have to be installed on our system.
 We recommend installing the Qt IDE and the tools to develop user interfaces provided by Qt. 
 There are many ways one can install the libraries and tools, for our case we will use [Qt for Open Source Development](https://www.qt.io/download-open-source). 
 And we will use the [online installer](https://www.qt.io/download-qt-installer-oss).
-In future post we will explain how to install Qt for [GitHub Actions](https://github.com/features/actions) and how to install Qt by using a [Yocto/OE](https://www.yoctoproject.org/) Layer.
+In a future post, we will explain how to install Qt for [GitHub Actions](https://github.com/features/actions) and how to install Qt by using a [Yocto/OE](https://www.yoctoproject.org/) Layer.
 
 To use the online installer one needs to have a [Qt account](https://login.qt.io/login). 
 
@@ -138,7 +138,7 @@ Here we are selecting Ninja as the build system but this is an optional step.
 
 One of the parameters that compose a [block](https://github.com/iotaledger/tips/blob/main/tips/TIP-0024/tip-0024.md#serialized-layout) is the `Nonce`.
 The procedure of finding the nonce is referred to as [Proof of Work](https://github.com/iotaledger/tips/blob/main/tips/TIP-0012/tip-0012.md)(PoW).
-The latter is proof that intensive calculation, use of resources has been performed and is used to rate-limit the network.
+The latter is proof that intensive calculation and use of resources have been performed and are used to rate-limit the network.
 Both  the clients and  the nodes can produce the PoW.
 
 The finding of the nonce in the C++ library is performed by the [Qpow-IOTA](https://github.com/EddyTheCo/Qpow-IOTA) library.
@@ -223,7 +223,7 @@ The public endpoint `api.testnet.shimmer.network` does not perform PoW.
 The recommended setup is to use a node that performs PoW for the client.
 If you maintain a node, this is easy to [configure](https://wiki.iota.org/shimmer/hornet/how_tos/using_docker/).
 The linked video gives you some secrets for using a node from estervtech to do PoW. 
-If the block passed the initial validation of the node, the `Block Id` is returned.
+If the block passes the initial validation of the node, the `Block Id` is returned.
 
 
 
@@ -245,10 +245,10 @@ We have sent a block with the most basic payload to the nodes.
 Feel free to play with the other [examples](https://github.com/EddyTheCo/Qclient-IOTA/tree/main/examples).
 The purpose of these posts is to create a community around the Shimmer ecosystem.
 A community that shares knowledge and contributes to the development  of applications that trust the  Shimmer nodes.
-Find bugs, typos, learn and teach us what you know by contributing! 
+Find bugs, and typos, learn, and teach us what you know by contributing! 
 In future posts, I will explain my understanding of the different Outputs used in the [Stardust Protocol](https://blog.shimmer.network/stardust-upgrade-in-a-nutshell/) and how these can be used.
 Please let me know in the comments if you find it useful.
-Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimmer++.  
+Let me know your doubts about the Stardust protocol, Layer 1 of Shimmer, and Shimmer++.  
 
 
 ## Watch the video! 
