@@ -50,7 +50,7 @@ jobs:
         env:
           JEKYLL_ENV: "production"
       - name: debug
-        run: cat /home/runner/work/Shimmerpp/Shimmerpp/_site/Shimmerpp/404.html
+        run: cat /home/runner/work/Shimmerpp/Shimmerpp/posts/BuildingGUIapplication/index.html
        
       - name: Test site
         run: |
