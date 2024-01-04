@@ -13,7 +13,7 @@ This post explains how to extend the QML language using C++, specifically the [S
 After reading the post, developers will be able to create reusable GUI components, making the development faster.
 
 The [code repo](https://github.com/EddyTheCo/NFTQMLShimmerpp/tree/v0.1.1) serves as an example application of this post. 
-The repo creates a library that defines custom QML types defined in C++ and QML, and use that library in a [simple NFT game](https://eddytheco.github.io/NFTQMLShimmerpp/).
+The repo creates a library that defines custom QML types defined in C++ and QML and uses that library in a [simple NFT game](https://eddytheco.github.io/NFTQMLShimmerpp/).
 
 The linked video shows the benefits of using a declarative language like QML and speculates about the use of this in games, wallet applications, etc. The video also shows how to use  the library in your application.
 Make sure you watch the video, so you  always win in our simple NFT game.  
@@ -84,14 +84,14 @@ The definition of the `RESOURCE_PREFIX` is made to avoid name clashes between di
 This resource prefix has to be added to the [QML Import Path](https://doc.qt.io/qt-6/qtqml-syntax-imports.html#qml-import-path) for the QML engine to be able to find the module. 
 By using this path, the application that links to our library can rely on [the Qt Resource System](https://doc.qt.io/qt-6/resources.html) for using QML modules and resources in a platform-independent manner.
 
-Setting the `OUTPUT_DIRECTORY` variable will allow us to control where the plugin library, qmldir and typeinfo files are generated.
+Setting the `OUTPUT_DIRECTORY` variable will allow us to control where the plugin library, qmldir, and typeinfo files are generated.
 The latter variable is important for tooling and using the plugin target at runtime.
 Even if your application explicitly links to your backing target, the linker could see the module as unused by the application.
 It is generally hard to guarantee that a linker preserves the linkage to a library it considers unused.
 In that case, the plugin target  is used at runtime to load the module dynamically.
 Setup tooling like [qmllint](https://doc.qt.io/qt-6/qtquick-tool-qmllint.html) for our library is out of the scope of this post.
 
-> With this, we have defined two CMake targets that exposes some custom QML types in a library that can be built.
+> With this, we have defined two CMake targets that expose some custom QML types in a library that can be built.
 {: .prompt-info }
 
 To use these targets one has to make it available to the CMake configuration of the project using our library.
@@ -110,7 +110,7 @@ install(TARGETS nftMonitor nftMonitorplugin ${out_targets_var}
 	)
 ``` 
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.1.1/CMakeLists.txt'}
-The plugin target is only need it if the module is statically built, so that , targets that import such STATIC QML modules also need to explicitly link to corresponding QML plugins.
+The plugin target is only need it if the module is statically built, so that, targets that import such STATIC QML modules also need to explicitly link to corresponding QML plugins.
 
 Install also the public headers and the compiled plugin folder
 
@@ -123,7 +123,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/NFTMonitor/
 	)
 ``` 
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.1.1/CMakeLists.txt'}
-The compiled plugin folder should be use to load the module dynamically and with tooling.
+The compiled plugin folder should be used to load the module dynamically and with tooling.
 
 One also needs to install a CMake file containing code to import the targets from the installation tree into another project, like
 ```cmake
@@ -153,7 +153,7 @@ install(FILES
 ```
 {: file='https://github.com/EddyTheCo/NFTQMLShimmerpp/blob/v0.1.1/CMakeLists.txt'}
 > Now we have a library that can be easily reused in other applications by using CMake.
- The project install the backing and plugin target for explicit linking, the plugin folder for dynamically loading the module,
+ The project installs the backing and plugin target for explicit linking, the plugin folder for dynamically loading the module,
 and the headers for using the custom QML type from C++.
 {: .prompt-info }
 
@@ -162,7 +162,7 @@ and the headers for using the custom QML type from C++.
 To monitor the NFT outputs linked to a certain address we need to use the Shimmer++ libraries.
 We will need to use the route `/api/indexer/v1/outputs/nft` of the [REST API](https://wiki.iota.org/tips/tips/TIP-0026/) of the nodes.
 The [Event API](https://wiki.iota.org/tips/tips/TIP-0028/) of the nodes will let us know if a new `NFT Output` is created referencing the address we are monitoring by subscribing to `outputs/unlock/{condition}/{address}` topic.
-The latter will update  the exposed properties of our QML type in real-time.
+The latter will update  the exposed properties of our QML type in real time.
 
 To make available the methods to communicate with the REST API of the nodes we use the [Qclient](https://eddytheco.github.io/Qclient-IOTA/) library.
 The communication with the Event API is performed by the [QclientMqtt](https://eddytheco.github.io/QclientMqtt-IOTA/) library.
@@ -170,7 +170,7 @@ The communication with the Event API is performed by the [QclientMqtt](https://e
 One can easily integrate these libraries into your CMake project like
 ```cmake
 include(FetchContent)
-# Get the library that check if a NFT exist on an address using the REST API of the nodes
+# Get the library that checks if a NFT exists on an address using the REST API of the nodes
 # This will check if the library is installed first, if not download it from GitHub and compile it
 FetchContent_Declare(
 	qclient
@@ -439,9 +439,9 @@ We are looking forward to using your custom QML types or your contributions to t
 The purpose of these posts is to create a community around the Shimmer ecosystem. A community that shares knowledge and contributes to the development of applications that trust the Shimmer nodes. Find bugs, and typos, learn and teach us what you know by contributing!
 
 In future posts, I will explain how to use the Shimmer++ libraries and these custom QML types to create a GUI application.
-A GUI application that is multi-platform, with the same code we will deploy the application in major desktop platforms, browsers,  mobile and, embedded devices.   
+A GUI application that is multi-platform, with the same code we will deploy the application in major desktop platforms, browsers,  mobile, and embedded devices.   
 
-Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimmer++.
+Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, Layer 1 of Shimmer, and Shimmer++.
 
 
 ## Watch the video! 
