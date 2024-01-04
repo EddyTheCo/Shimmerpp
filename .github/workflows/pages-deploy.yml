@@ -49,8 +49,8 @@ jobs:
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: "production"
-      -name: debug
-       run: cat /home/runner/work/Shimmerpp/Shimmerpp/_site/Shimmerpp/404.html
+      - name: debug
+        run: cat /home/runner/work/Shimmerpp/Shimmerpp/_site/Shimmerpp/404.html
        
       - name: Test site
         run: |
