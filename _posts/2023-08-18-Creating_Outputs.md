@@ -21,7 +21,7 @@ The protocol is followed by the nodes with the sole purpose of changing their le
 The nice part of the protocol is that it does that in a secure, permissionless, and decentralized manner.
 When referring to decentralization, I mean that everyone can own outputs on the ledger and validate ledger state transitions.
 
-# UTXO model in Shimmer explained simple
+# UTXO model in Shimmer explained simply
 
 A transaction must be proposed to the node to modify its ledger.
 The transaction is composed of two parts,
@@ -86,7 +86,7 @@ Adding a `Tag Feature` with the index "IoT position" makes it easier for the cli
 Normally, entries on the public database do not say who created them. 
 If an entry(Output) has the `Sender  Feature` it links the creation of the output with some `Address`.
 This link is [secured by the protocol](https://wiki.iota.org//tips/tips/TIP-0018/#additional-semantic-transaction-validation-rule-1).
-Following the example of the IoT device, adding the `Sender Feature` to the output allows the client applications to certify from which IoT device this metadata came from.
+Following the example of the IoT device, adding the `Sender Feature` to the output allows the client applications to certify from which IoT device this metadata came.
 
 
 ### [Unlock Conditions](https://wiki.iota.org//tips/tips/TIP-0018/#unlock-conditions)
@@ -121,7 +121,7 @@ This condition allows [microtransactions on Layer 1](https://wiki.iota.org//tips
 The outputs with this condition and `Native Tokens`, allow the creator of the output to change the ownership of the tokens without 
 losing the storage deposit of the output.
 
-As an example, a client dapp validates that the coordinates published by the IoT device are correct.
+As an example, a client Dapp validates that the coordinates published by the IoT device are correct.
 To recognize the good behavior of the device the client creates a `Basic Output` with an `Address Unlock Condition` set equal to the `Sender Feature`  value of the output the device uses to publish its coordinates.
 The client output has a certain `Native Token` and a `Storage Deposit Return Unlock Condition`.
 The `Return Address` on the `Storage Deposit Return Unlock Condition` is an address the client controls and the `Return Amount` is equal to the output `Amount` value. 
@@ -145,7 +145,7 @@ In that case, the device can be certain previous outputs will not be consumed un
 
 This condition sets a `Unix Time`, to unlock the output after this time, proof of  ownership of the 
 `Address` in the `Address Unlock Condition` is not needed. 
-Instead, a prove of ownership of the `Return Address` value of the `Expiration Unlock Condition` has to be given.
+Instead, proof of ownership of the `Return Address` value of the `Expiration Unlock Condition` has to be given.
 
 
 As an example, when the client application creates the output to transfer some tokens to the IoT device for its good behavior.
@@ -175,7 +175,7 @@ In the case of the `NFT Output` the creation of the chain is normally called NFT
 
 
 As an example, the IoT device could use an `NFT Output` instead of a basic one to publish its location.
-The producer of the devices mint a NFT for each device and an address controlled by the producer is set in the `Issuer Feature`.
+The producer of the devices mints an NFT for each device and an address controlled by the producer is set in the `Issuer Feature`.
 The producer transfers ownership of the `NFT Output` to the device. 
 Now the client application apart from certifying which IoT device published the data(by using the `Sender Feature`), also can certify that the device comes from a certain producer.
 
@@ -185,8 +185,8 @@ The producer could add to this field the different physical properties the IoT d
 
 ## [Alias Output](https://wiki.iota.org//tips/tips/TIP-0018/#alias-output)
 
-This type of output is also subjected to chain constraint with the `Alias ID` as global ID of the chain .
-It allows the `Sender Feature` and `Metadata Feature` and also the `Immutable Features`, `Issuer Feature` and `Metadata Feature`.
+This type of output is also subjected to chain constraint with the `Alias ID` as the global ID of the chain .
+It allows the `Sender Feature` and `Metadata Feature` and also the `Immutable Features`, `Issuer Feature`, and `Metadata Feature`.
 The output introduces new fields like `State Index`, `State Metadata`, and `Foundry Counter` but admits only two `Unlock Conditions`
 - [x] State Controller Address Unlock Condition
 - [x] Governor Address Unlock Condition
@@ -196,11 +196,11 @@ Due to this, one can say the `Alias Output` has [two levels of control](https://
 
 #### [State Controller Address Unlock Condition](https://wiki.iota.org//tips/tips/TIP-0018/#state-controller-address-unlock-condition)
 
-This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with State Controller control level.
+This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with the State Controller control level.
 
 #### [Governor Address Unlock Condition](https://wiki.iota.org//tips/tips/TIP-0018/#governor-address-unlock-condition)
 
-This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with Governor control level.
+This condition sets the address whose ownership has to be provided to unlock the `Alias Output` with the Governor control level.
 
 As an example, the producer can create an `Alias Output` with an address he controls as a `Governor Address Unlock Condition`.
 The `State Controller Address Unlock Condition` is set to an address controlled by a certain factory.
@@ -239,7 +239,7 @@ Find bugs, and typos, learn and teach us what you know by contributing!
  
 In future posts, I will explain how to use the Shimmer++ libraries to extend QML. 
 We will develop a custom QML type(a GUI object), that can interact with the protocol and can be easily reused in different GUI applications.
-Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, the Layer 1 of Shimmer, and Shimmer++.
+Please let me know in the comments if you find it useful. Let me know your doubts about the Stardust protocol, Layer 1 of Shimmer, and Shimmer++.
 
 ## Watch the video! 
 {% include embed/youtube.html id='ibErRWgGI1M' %}
