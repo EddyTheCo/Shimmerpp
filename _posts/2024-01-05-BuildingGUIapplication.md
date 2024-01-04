@@ -15,7 +15,7 @@ Specifically, the post will pinpoint the important parts needed to build the app
 [embedded](https://doc.qt.io/qt-6/embedded-linux.html) devices.
 
 The [code repo](https://github.com/EddyTheCo/NftMinter/tree/v0.5.0) contains the application source code and will be the main reference of this post.
-A [Yocto](https://www.yoctoproject.org/) Layer [repo](https://www.example.org) shows how to use the Shimmer++ libraries in embedded devices.
+A [Yocto](https://www.yoctoproject.org/) Layer [repo](https://github.com/EddyTheCo/meta-evt) shows how to use the Shimmer++ libraries in embedded devices.
 Developers are encouraged to check the repos for a more complete understanding of this post.
 
 The linked video showcases the application running on different platforms and explains the logic behind NFTs working as wallets.  
