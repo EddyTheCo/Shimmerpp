@@ -6,8 +6,7 @@ order: 4
 
 Shimmerpp is intended to serve as a hub for developers interested in the [Shimmer ecosystem](https://shimmer.network/).
 Its purpose is to create a community of C++ developers that use and trust the IOTA/Shimmer protocol.
-We are not interested on the speculative side of crypto and we are not associated to the Iota Foundation.
-We discourage investing on Shimmer and IOTA, because that will be investing on the Iota Foundation and its pursue of centralize the development and protocol.
+We are not interested in the speculative side of crypto and we are not associated with the Iota Foundation. We discourage investing in Shimmer and IOTA because that will be investing in the Iota Foundation and its pursuit of centralizing the development and protocol.
 
 
 The community is open to all experience levels of C++ and all types of contributions.
