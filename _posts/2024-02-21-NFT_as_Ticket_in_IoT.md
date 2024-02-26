@@ -5,7 +5,7 @@ categories: [Showcase, Discussion]
 tags: [IoT,NFT]
 img_path: /assets/img/
 image:
-path: posts/gui/Dlockers.png
+  path: posts/gui/Dlockers.png
 ---
 
 This post showcases a DePIN example on Shimmer and explains the idea behind using NFTs as tickets in an IoT application.
