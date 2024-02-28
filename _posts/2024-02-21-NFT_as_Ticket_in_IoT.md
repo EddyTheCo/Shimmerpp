@@ -64,12 +64,18 @@ The server is monitoring for new booking requests.
 Once a new booking arrives the server checks if is possible to book in that interval and if the payment is correct.
 If the booking is accepted, the server updates its state and creates a new `Basic Output` with its new state by consuming the old `Output`.
 At the same time, the server creates an [`NFT Output`](https://wiki.iota.org/tips/tips/TIP-0018/#nft-output) with `Address Unlock Condition`
-the address on the `Sender` feature of the client `Output`.
+the address on the `Sender` feature of the client `Output`. 
 
 The `NFT Output` has also an `Expiration Unlock Condition` and a `Storage Deposit Return Unlock Condition`.
 The `Expiration Unlock Condition` is set in such a way that if the client does not use the `Output` before the time slot on the booking the `Output` and its assets will be again controlled by the server.
 The `Storage Deposit Return Unlock Condition` forces the client to take care of the `Storage deposit` if wants to use the `NFT Output`.
 
+The client controls an NFT issued by the server.
+The NFT has `Immutable Metadata` that describes the time interval the client can open the box. 
+To open the box, the client should be in the physical position of the server.
+Once there, as requested by the client, the server starts monitoring an address for NFTs issued by itself.
+The client `sends` the NFT to the address the server proposed, the client does not lose control of the NFT.
+The server checks that `Immutable Metadata` in the NFT allows the client to open the locker.
 
 In principle, the servers do not have to publish their state on the ledger, they could publish a link to its public API.
 The use of the ledger to store the state of the server reinforces the security of the protocol, for example against denial-of-service (DDoS) attacks or high load on the public API.
