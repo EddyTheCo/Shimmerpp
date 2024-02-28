@@ -3,7 +3,7 @@ title:  IoT, DePIN and NFT as tickets
 date: 2024-02-25 08:00:00 +0800
 categories: [Showcase, Discussion]
 tags: [IoT,NFT]
-img_path: assets/img/
+img_path: /assets/img/
 image:
   path: posts/gui/Dlockers.png
 ---
