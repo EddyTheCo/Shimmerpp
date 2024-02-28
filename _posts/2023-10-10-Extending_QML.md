@@ -3,7 +3,7 @@ title: Creating a GUI component
 date: 2023-10-10 08:00:00 +0800
 categories: [Tutorial]
 tags: [QML,NFT]   
-img_path: /assets/img/
+img_path: /Shimmerpp/assets/img/
 image:
   path: posts/gui/Creating_Gui_Component.png
 ---

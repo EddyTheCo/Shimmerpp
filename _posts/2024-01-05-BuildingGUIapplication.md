@@ -3,7 +3,7 @@ title:  Qt/QML application for Shimmer
 date: 2024-01-04 08:00:00 +0800
 categories: [Tutorial, Showcase]
 tags: [QML,NFT]   
-img_path: /assets/img/
+img_path: /Shimmerpp/assets/img/
 image:
   path: posts/gui/platformsGuiApp.png
 ---

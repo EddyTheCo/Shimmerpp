@@ -3,7 +3,7 @@ title: UTXO model in Shimmer
 date: 2023-08-18 08:00:00 +0800
 categories: [Tutorial,Documentation]
 tags: [outputs,ledger,qt]   
-img_path: /assets/img/
+img_path: /Shimmerpp/assets/img/
 image:
   path: posts/utxo/UTXO_model_in_Shimmer.png
 ---
